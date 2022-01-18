@@ -16,6 +16,7 @@
 		CFBA792627977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA792527977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSTests.swift */; };
 		CFBA793027977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA792F27977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITests.swift */; };
 		CFBA793227977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA793127977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITestsLaunchTests.swift */; };
+		CFBA793F27978138005EC1A4 /* res in Resources */ = {isa = PBXBuildFile; fileRef = CFBA793E27978138005EC1A4 /* res */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		CFBA792B27977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Lab1_DanielMiolan_c0817504_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFBA792F27977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1_DanielMiolan_c0817504_iOSUITests.swift; sourceTree = "<group>"; };
 		CFBA793127977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1_DanielMiolan_c0817504_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CFBA793E27978138005EC1A4 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = "../../../TicTacToe-template/TicTacToe-template/res"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		CFBA790D27977EE4005EC1A4 /* Lab1_DanielMiolan_c0817504_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CFBA793E27978138005EC1A4 /* res */,
 				CFBA790E27977EE4005EC1A4 /* AppDelegate.swift */,
 				CFBA791027977EE4005EC1A4 /* SceneDelegate.swift */,
 				CFBA791227977EE4005EC1A4 /* ViewController.swift */,
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFBA791B27977EE6005EC1A4 /* LaunchScreen.storyboard in Resources */,
+				CFBA793F27978138005EC1A4 /* res in Resources */,
 				CFBA791827977EE6005EC1A4 /* Assets.xcassets in Resources */,
 				CFBA791627977EE4005EC1A4 /* Main.storyboard in Resources */,
 			);
