@@ -68,6 +68,8 @@ class GameManager {
     func ResetBoard() -> Void {
         playerPoints = 0
         oponentPoints = 0
+        scoreLabel.text = "0 : 0"
+        EndGame()
         ResetGame()
     }
     

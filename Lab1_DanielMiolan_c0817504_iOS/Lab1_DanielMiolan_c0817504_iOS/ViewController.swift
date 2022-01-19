@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     private var gameManager: GameManager = GameManager()
+    private var gestureList: [UISwipeGestureRecognizer.Direction] = [.left, .right, .up, .down]
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var resultLabel: UILabel!
@@ -24,6 +25,12 @@ class ViewController: UIViewController {
         gameManager.SetResultLabel(resultLabel: resultLabel)
         gameManager.SetPlayButton(playBtn: playBtn)
         gameManager.SetSelectionButtons(selectionBtns: buttonList)
+        
+        for gesture in gestureList {
+            let tempSwipe = UISwipeGestureRecognizer(target: self, action: #selector(PerformSwipe))
+            tempSwipe.direction = gesture
+            view.addGestureRecognizer(tempSwipe)
+        }
     }
 
     @IBAction func PlayGame(_ sender: UIButton) {
@@ -32,6 +39,17 @@ class ViewController: UIViewController {
     
     @IBAction func SelectPosition(_ sender: UIButton) {
         gameManager.SelectPosition(index: sender.tag)
+    }
+    
+    @objc func PerformSwipe(gesture: UISwipeGestureRecognizer) -> Void {
+        let swipeGesture = gesture as UISwipeGestureRecognizer
+        
+        switch swipeGesture.direction {
+            case .left, .right, .up, .down:
+                gameManager.ResetBoard()
+            default:
+                break
+        }
     }
 }
 
