@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    private var gameManager: GameManager = GameManager()
+    
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet var buttonList: Array<UIButton>!
@@ -17,17 +19,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        for btn in buttonList {
-            print("We have Tag #\(btn.tag)")
-        }
+        gameManager.SetResultLabel(resultLabel: resultLabel)
+        gameManager.SetPlayButton(playBtn: playBtn)
+        gameManager.SetSelectionButtons(selectionBtns: buttonList)
     }
 
     @IBAction func PlayGame(_ sender: UIButton) {
-        print("Start Game")
+        gameManager.Start()
     }
     
     @IBAction func SelectPosition(_ sender: UIButton) {
-        print("Tap on Button #\(sender.tag)")
+        gameManager.SelectPosition(index: sender.tag)
     }
 }
 

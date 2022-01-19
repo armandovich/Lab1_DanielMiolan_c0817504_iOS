@@ -19,6 +19,7 @@
 		CFBA794527978CC3005EC1A4 /* nought.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBA794227978CC3005EC1A4 /* nought.png */; };
 		CFBA794627978CC3005EC1A4 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBA794327978CC3005EC1A4 /* cross.png */; };
 		CFBA794727978CC3005EC1A4 /* board.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBA794427978CC3005EC1A4 /* board.png */; };
+		CFBA794927978E2C005EC1A4 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA794827978E2C005EC1A4 /* GameManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		CFBA794227978CC3005EC1A4 /* nought.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nought.png; sourceTree = "<group>"; };
 		CFBA794327978CC3005EC1A4 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
 		CFBA794427978CC3005EC1A4 /* board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = board.png; sourceTree = "<group>"; };
+		CFBA794827978E2C005EC1A4 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				CFBA791727977EE6005EC1A4 /* Assets.xcassets */,
 				CFBA791927977EE6005EC1A4 /* LaunchScreen.storyboard */,
 				CFBA791C27977EE6005EC1A4 /* Info.plist */,
+				CFBA794827978E2C005EC1A4 /* GameManager.swift */,
 			);
 			path = Lab1_DanielMiolan_c0817504_iOS;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFBA791327977EE4005EC1A4 /* ViewController.swift in Sources */,
+				CFBA794927978E2C005EC1A4 /* GameManager.swift in Sources */,
 				CFBA790F27977EE4005EC1A4 /* AppDelegate.swift in Sources */,
 				CFBA791127977EE4005EC1A4 /* SceneDelegate.swift in Sources */,
 			);
