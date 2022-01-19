@@ -130,8 +130,11 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPO-w1-3F0">
-                                <rect key="frame" x="15" y="768" width="384" height="44"/>
+                                <rect key="frame" x="15" y="812" width="384" height="35"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="FXJ-Kt-kBx"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Play">
@@ -147,23 +150,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HzO-hS-yPE">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HzO-hS-yPE">
                                 <rect key="frame" x="15" y="64" width="384" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CROSS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4C0-DP-vCH">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="90"/>
+                                        <rect key="frame" x="0.0" y="36" width="128" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 : 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ml5-Gf-3ZM">
-                                        <rect key="frame" x="128" y="0.0" width="128" height="90"/>
+                                        <rect key="frame" x="128" y="30" width="128" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" systemColor="systemGreenColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOUGHT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dk-7P-EOY">
-                                        <rect key="frame" x="256" y="0.0" width="128" height="90"/>
+                                        <rect key="frame" x="256" y="36" width="128" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -173,16 +176,38 @@
                                     <constraint firstAttribute="height" constant="90" id="Nhb-Pl-hry"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Aju-5d-rgS">
+                                <rect key="frame" x="15" y="772" width="384" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play with AI oponent?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iP-rW-9W9">
+                                        <rect key="frame" x="0.0" y="5" width="335" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kHd-co-TUW">
+                                        <rect key="frame" x="335" y="0.0" width="51" height="30"/>
+                                        <connections>
+                                            <action selector="ToggleOponentAI:" destination="BYZ-38-t0r" eventType="valueChanged" id="P4d-HZ-94G"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WK0-dW-R82"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FGp-f8-DLK" secondAttribute="trailing" constant="10" id="7We-3r-32n"/>
                             <constraint firstItem="6tU-x7-P02" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="BJE-9U-cgA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Aju-5d-rgS" secondAttribute="trailing" constant="15" id="CLB-PM-9T9"/>
                             <constraint firstItem="YDx-3t-k2m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="JKb-8M-ohq"/>
                             <constraint firstItem="FGp-f8-DLK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="S5s-CP-1sr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6tU-x7-P02" secondAttribute="trailing" constant="15" id="S7P-Ab-hld"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HzO-hS-yPE" secondAttribute="trailing" constant="15" id="Spc-yf-wkv"/>
+                            <constraint firstItem="Aju-5d-rgS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="XsB-fZ-eWL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YDx-3t-k2m" secondAttribute="bottom" constant="150" id="ZyN-Qr-J5Z"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FGp-f8-DLK" secondAttribute="bottom" constant="150" id="bwI-12-hsk"/>
                             <constraint firstItem="HzO-hS-yPE" firstAttribute="top" secondItem="6tU-x7-P02" secondAttribute="top" constant="5" id="cfm-gk-5Ek"/>
@@ -191,12 +216,14 @@
                             <constraint firstItem="FGp-f8-DLK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="feO-qV-P27"/>
                             <constraint firstItem="HzO-hS-yPE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="hEk-0w-z5E"/>
                             <constraint firstItem="wPO-w1-3F0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="noR-D0-WJp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wPO-w1-3F0" secondAttribute="bottom" constant="50" id="pBx-ax-PjE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wPO-w1-3F0" secondAttribute="bottom" constant="15" id="pBx-ax-PjE"/>
                             <constraint firstItem="6tU-x7-P02" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="s01-Bb-sjm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YDx-3t-k2m" secondAttribute="trailing" constant="10" id="w5n-oU-HeW"/>
+                            <constraint firstItem="wPO-w1-3F0" firstAttribute="top" secondItem="Aju-5d-rgS" secondAttribute="bottom" constant="10" id="z52-Mf-YSx"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="oponentSwitch" destination="kHd-co-TUW" id="SHQ-Lw-cWG"/>
                         <outlet property="playBtn" destination="wPO-w1-3F0" id="q8U-9j-w9l"/>
                         <outlet property="resultLabel" destination="6tU-x7-P02" id="KMa-Wm-lfG"/>
                         <outlet property="scoreLabel" destination="ml5-Gf-3ZM" id="WJS-5U-Yhk"/>

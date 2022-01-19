@@ -20,12 +20,16 @@ class GameManager {
     private var selectionBtns: [UIButton]
     private var resultLabel: UILabel
     private var scoreLabel: UILabel
+    private var isOponentAI: Bool
+    private var didPlayerTap: Bool
     
     init() {
         moveCount = 0
         playerPoints = 0
         oponentPoints = 0
         gameStart = false
+        isOponentAI = false
+        didPlayerTap = false
         playBtn = UIButton()
         selectionBtns = [UIButton]()
         resultLabel = UILabel()
@@ -44,16 +48,32 @@ class GameManager {
         }
         
         if IsPositionAvailable(index: index) {
-            playerSelection.append(index)
-            PerformSelection(index: index, imageName: "cross")
+            let tempIsPlayer = didPlayerTap
+            
             moveCount += 1
-            CheckWinner(isPlayer: true)
-            OponentSelection()
+            
+            if !isOponentAI && didPlayerTap {
+                didPlayerTap = false
+                oponentSelection.append(index)
+                PerformSelection(index: index, imageName: "nought")
+                CheckWinner(isPlayer: false)
+            } else {
+                didPlayerTap = true
+                playerSelection.append(index)
+                PerformSelection(index: index, imageName: "cross")
+                CheckWinner(isPlayer: true)
+                
+                if isOponentAI {
+                    OponentSelection()
+                    didPlayerTap = false
+                }
+            }
         }
     }
     
     func ResetGame() -> Void {
         moveCount = 0
+        didPlayerTap = false
         takenPositions.removeAll()
         playerSelection.removeAll()
         oponentSelection.removeAll()
@@ -89,6 +109,15 @@ class GameManager {
         self.selectionBtns = selectionBtns
     }
     
+    func SetIsOponentAI(isOponentAI: Bool) -> Void {
+        self.isOponentAI = isOponentAI
+        
+        if isOponentAI && didPlayerTap {
+            OponentSelection()
+            didPlayerTap = false
+        }
+    }
+    
     private func OponentSelection() -> Void {
         if !gameStart || moveCount >= 9 {
             return
@@ -113,7 +142,7 @@ class GameManager {
     private func PerformSelection(index: Int, imageName: String) -> Void {
         let tempBtn = selectionBtns[index - 1];
         let tempImg = UIImage(named: imageName)
-        let tempDelay: Float = imageName == "cross" ? 0 : 0.5
+        let tempDelay: Float = imageName == "cross" || !isOponentAI ? 0 : 0.5
         
         takenPositions.append(index)
         AnimateOpacity(btn: tempBtn, opacity: 0, speed: 0, delay: 0)
@@ -128,8 +157,6 @@ class GameManager {
         
         var didWin = false
         let positions = isPlayer ? playerSelection : oponentSelection
-        
-        print(positions)
         
         let row1 = positions.contains(1) && positions.contains(2)  && positions.contains(3)
         let row2 = positions.contains(4) && positions.contains(5)  && positions.contains(6)

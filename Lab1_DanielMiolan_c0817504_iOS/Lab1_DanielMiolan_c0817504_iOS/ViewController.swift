@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet var buttonList: Array<UIButton>!
+    @IBOutlet weak var oponentSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,10 @@ class ViewController: UIViewController {
             default:
                 break
         }
+    }
+    
+    @IBAction func ToggleOponentAI(_ sender: UISwitch) {
+        gameManager.SetIsOponentAI(isOponentAI: sender.isOn)
     }
 }
 
