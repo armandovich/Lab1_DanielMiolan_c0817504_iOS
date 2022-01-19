@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     private var gameManager: GameManager = GameManager()
     
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet var buttonList: Array<UIButton>!
@@ -19,6 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        gameManager.SetScoreLabel(scoreLabel: scoreLabel)
         gameManager.SetResultLabel(resultLabel: resultLabel)
         gameManager.SetPlayButton(playBtn: playBtn)
         gameManager.SetSelectionButtons(selectionBtns: buttonList)

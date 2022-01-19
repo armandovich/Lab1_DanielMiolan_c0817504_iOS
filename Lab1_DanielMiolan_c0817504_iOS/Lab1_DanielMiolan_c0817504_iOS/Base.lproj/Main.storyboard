@@ -143,10 +143,36 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tU-x7-P02" userLabel="Results">
                                 <rect key="frame" x="15" y="59" width="384" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HzO-hS-yPE">
+                                <rect key="frame" x="15" y="64" width="384" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CROSS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4C0-DP-vCH">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="90"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 : 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ml5-Gf-3ZM">
+                                        <rect key="frame" x="128" y="0.0" width="128" height="90"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" systemColor="systemGreenColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOUGHT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dk-7P-EOY">
+                                        <rect key="frame" x="256" y="0.0" width="128" height="90"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="Nhb-Pl-hry"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -156,11 +182,14 @@
                             <constraint firstItem="YDx-3t-k2m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="JKb-8M-ohq"/>
                             <constraint firstItem="FGp-f8-DLK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="S5s-CP-1sr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6tU-x7-P02" secondAttribute="trailing" constant="15" id="S7P-Ab-hld"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HzO-hS-yPE" secondAttribute="trailing" constant="15" id="Spc-yf-wkv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YDx-3t-k2m" secondAttribute="bottom" constant="150" id="ZyN-Qr-J5Z"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FGp-f8-DLK" secondAttribute="bottom" constant="150" id="bwI-12-hsk"/>
+                            <constraint firstItem="HzO-hS-yPE" firstAttribute="top" secondItem="6tU-x7-P02" secondAttribute="top" constant="5" id="cfm-gk-5Ek"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wPO-w1-3F0" secondAttribute="trailing" constant="15" id="dyL-Vb-5NA"/>
                             <constraint firstItem="YDx-3t-k2m" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="eVZ-Yd-ToQ"/>
                             <constraint firstItem="FGp-f8-DLK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="feO-qV-P27"/>
+                            <constraint firstItem="HzO-hS-yPE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="hEk-0w-z5E"/>
                             <constraint firstItem="wPO-w1-3F0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="noR-D0-WJp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wPO-w1-3F0" secondAttribute="bottom" constant="50" id="pBx-ax-PjE"/>
                             <constraint firstItem="6tU-x7-P02" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="s01-Bb-sjm"/>
@@ -170,6 +199,7 @@
                     <connections>
                         <outlet property="playBtn" destination="wPO-w1-3F0" id="q8U-9j-w9l"/>
                         <outlet property="resultLabel" destination="6tU-x7-P02" id="KMa-Wm-lfG"/>
+                        <outlet property="scoreLabel" destination="ml5-Gf-3ZM" id="WJS-5U-Yhk"/>
                         <outletCollection property="buttonList" destination="pIz-QC-luh" collectionClass="NSMutableArray" id="BKv-Lx-hN7"/>
                         <outletCollection property="buttonList" destination="FKP-m0-kYB" collectionClass="NSMutableArray" id="rVS-Aw-iSR"/>
                         <outletCollection property="buttonList" destination="Tdr-EF-Rod" collectionClass="NSMutableArray" id="EAr-C4-ez0"/>
@@ -193,6 +223,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

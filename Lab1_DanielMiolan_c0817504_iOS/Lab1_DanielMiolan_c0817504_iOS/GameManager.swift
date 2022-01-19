@@ -10,6 +10,8 @@ import UIKit
 
 class GameManager {
     private var moveCount: Int
+    private var playerPoints: Int
+    private var oponentPoints: Int
     private var takenPositions: [Int] = [Int]()
     private var playerSelection: [Int] = [Int]()
     private var oponentSelection: [Int] = [Int]()
@@ -17,13 +19,17 @@ class GameManager {
     private var playBtn: UIButton
     private var selectionBtns: [UIButton]
     private var resultLabel: UILabel
+    private var scoreLabel: UILabel
     
     init() {
         moveCount = 0
+        playerPoints = 0
+        oponentPoints = 0
         gameStart = false
         playBtn = UIButton()
         selectionBtns = [UIButton]()
         resultLabel = UILabel()
+        scoreLabel = UILabel()
     }
     
     func Start() -> Void {
@@ -57,6 +63,16 @@ class GameManager {
         for btn in selectionBtns {
             btn.setBackgroundImage(nil, for: .normal)
         }
+    }
+    
+    func ResetBoard() -> Void {
+        playerPoints = 0
+        oponentPoints = 0
+        ResetGame()
+    }
+    
+    func SetScoreLabel(scoreLabel: UILabel) -> Void {
+        self.scoreLabel = scoreLabel
     }
     
     func SetResultLabel(resultLabel: UILabel) -> Void {
@@ -131,7 +147,16 @@ class GameManager {
             resultLabel.text = "Even"
         } else if didWin {
             EndGame()
-            resultLabel.text = isPlayer ? "You Win" : "You Lose"
+            
+            if isPlayer {
+                playerPoints += 1
+                resultLabel.text = "You Win"
+            } else {
+                oponentPoints += 1
+                resultLabel.text = "You Lose"
+            }
+            
+            scoreLabel.text = "\(playerPoints) : \(oponentPoints)"
         }
     }
     
