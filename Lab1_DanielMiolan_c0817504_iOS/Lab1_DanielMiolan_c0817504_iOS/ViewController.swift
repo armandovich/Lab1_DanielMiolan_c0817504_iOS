@@ -8,10 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    // Create game manager and gesture list
     private var gameManager: GameManager = GameManager()
     private var gestureList: [UISwipeGestureRecognizer.Direction] = [.left, .right, .up, .down]
     
+    // Outlets
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var playBtn: UIButton!
@@ -22,11 +23,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        // Send UI elemts reference that will be changing dureng gameplay
         gameManager.SetScoreLabel(scoreLabel: scoreLabel)
         gameManager.SetResultLabel(resultLabel: resultLabel)
         gameManager.SetPlayButton(playBtn: playBtn)
         gameManager.SetSelectionButtons(selectionBtns: buttonList)
         
+        // Add all swipe direction gesture to view
         for gesture in gestureList {
             let tempSwipe = UISwipeGestureRecognizer(target: self, action: #selector(PerformSwipe))
             tempSwipe.direction = gesture
@@ -34,14 +37,17 @@ class ViewController: UIViewController {
         }
     }
 
+    // Action to start the game
     @IBAction func PlayGame(_ sender: UIButton) {
         gameManager.Start()
     }
     
+    // Action to select button
     @IBAction func SelectPosition(_ sender: UIButton) {
         gameManager.SelectPosition(index: sender.tag)
     }
     
+    // Check swipe direction
     @objc func PerformSwipe(gesture: UISwipeGestureRecognizer) -> Void {
         let swipeGesture = gesture as UISwipeGestureRecognizer
         
@@ -53,6 +59,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // Turn off/on AI oponent
     @IBAction func ToggleOponentAI(_ sender: UISwitch) {
         gameManager.SetIsOponentAI(isOponentAI: sender.isOn)
     }
