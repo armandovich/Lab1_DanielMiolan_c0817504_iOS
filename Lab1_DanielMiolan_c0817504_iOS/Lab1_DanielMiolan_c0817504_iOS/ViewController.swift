@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet var buttonList: Array<UIButton>!
-    @IBOutlet weak var oponentSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,9 +58,12 @@ class ViewController: UIViewController {
         }
     }
     
-    // Turn off/on AI oponent
-    @IBAction func ToggleOponentAI(_ sender: UISwitch) {
-        gameManager.SetIsOponentAI(isOponentAI: sender.isOn)
+    // Perform undue last move when shake phone
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if event?.subtype == .motionShake {
+            print("phone shake")
+            gameManager.UndoMove()
+        }
     }
 }
 
