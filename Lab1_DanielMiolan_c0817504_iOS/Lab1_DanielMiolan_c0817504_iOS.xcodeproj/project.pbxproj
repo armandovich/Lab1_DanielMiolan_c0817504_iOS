@@ -13,9 +13,6 @@
 		CFBA791627977EE4005EC1A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFBA791427977EE4005EC1A4 /* Main.storyboard */; };
 		CFBA791827977EE6005EC1A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFBA791727977EE6005EC1A4 /* Assets.xcassets */; };
 		CFBA791B27977EE6005EC1A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFBA791927977EE6005EC1A4 /* LaunchScreen.storyboard */; };
-		CFBA792627977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA792527977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSTests.swift */; };
-		CFBA793027977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA792F27977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITests.swift */; };
-		CFBA793227977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBA793127977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITestsLaunchTests.swift */; };
 		CFBA794527978CC3005EC1A4 /* nought.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBA794227978CC3005EC1A4 /* nought.png */; };
 		CFBA794627978CC3005EC1A4 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBA794327978CC3005EC1A4 /* cross.png */; };
 		CFBA794727978CC3005EC1A4 /* board.png in Resources */ = {isa = PBXBuildFile; fileRef = CFBA794427978CC3005EC1A4 /* board.png */; };
@@ -49,10 +46,7 @@
 		CFBA791A27977EE6005EC1A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFBA791C27977EE6005EC1A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFBA792127977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Lab1_DanielMiolan_c0817504_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFBA792527977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1_DanielMiolan_c0817504_iOSTests.swift; sourceTree = "<group>"; };
 		CFBA792B27977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Lab1_DanielMiolan_c0817504_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFBA792F27977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1_DanielMiolan_c0817504_iOSUITests.swift; sourceTree = "<group>"; };
-		CFBA793127977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1_DanielMiolan_c0817504_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CFBA794227978CC3005EC1A4 /* nought.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nought.png; sourceTree = "<group>"; };
 		CFBA794327978CC3005EC1A4 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
 		CFBA794427978CC3005EC1A4 /* board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = board.png; sourceTree = "<group>"; };
@@ -88,8 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				CFBA790D27977EE4005EC1A4 /* Lab1_DanielMiolan_c0817504_iOS */,
-				CFBA792427977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSTests */,
-				CFBA792E27977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITests */,
 				CFBA790C27977EE4005EC1A4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,23 +110,6 @@
 				CFBA794827978E2C005EC1A4 /* GameManager.swift */,
 			);
 			path = Lab1_DanielMiolan_c0817504_iOS;
-			sourceTree = "<group>";
-		};
-		CFBA792427977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				CFBA792527977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSTests.swift */,
-			);
-			path = Lab1_DanielMiolan_c0817504_iOSTests;
-			sourceTree = "<group>";
-		};
-		CFBA792E27977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CFBA792F27977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITests.swift */,
-				CFBA793127977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITestsLaunchTests.swift */,
-			);
-			path = Lab1_DanielMiolan_c0817504_iOSUITests;
 			sourceTree = "<group>";
 		};
 		CFBA794127978C99005EC1A4 /* res */ = {
@@ -292,7 +267,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFBA792627977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,8 +274,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFBA793027977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITests.swift in Sources */,
-				CFBA793227977EE6005EC1A4 /* Lab1_DanielMiolan_c0817504_iOSUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
