@@ -61,12 +61,12 @@ class GameManager {
             if !isOponentAI && didPlayerTap {
                 didPlayerTap = false
                 oponentSelection.append(index)
-                PerformSelection(index: index, imageName: "nought")
+                PerformSelection(index: index, imageName: "cross")
                 CheckWinner(isPlayer: false)
             } else {
                 didPlayerTap = true
                 playerSelection.append(index)
-                PerformSelection(index: index, imageName: "cross")
+                PerformSelection(index: index, imageName: "nought")
                 CheckWinner(isPlayer: true)
                 
                 // Check if oponent AI is active so it can select a button
@@ -142,7 +142,7 @@ class GameManager {
         // Check if position is available
         if IsPositionAvailable(index: index) {
             oponentSelection.append(index)
-            PerformSelection(index: index, imageName: "nought")
+            PerformSelection(index: index, imageName: "cross")
             moveCount += 1
             CheckWinner(isPlayer: false)
         } else {
@@ -160,7 +160,7 @@ class GameManager {
     private func PerformSelection(index: Int, imageName: String) -> Void {
         let tempBtn = selectionBtns[index - 1];
         let tempImg = UIImage(named: imageName)
-        let tempDelay: Float = imageName == "cross" || !isOponentAI ? 0 : 0.5
+        let tempDelay: Float = imageName == "nought" || !isOponentAI ? 0 : 0.5
         
         takenPositions.append(index)
         AnimateOpacity(btn: tempBtn, opacity: 0, speed: 0, delay: 0)
