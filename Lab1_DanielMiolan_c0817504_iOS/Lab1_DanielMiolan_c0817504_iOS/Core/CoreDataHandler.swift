@@ -21,6 +21,7 @@ class CoreDataHandler {
         //SaveData(playerScore: 0, oponentScore: 0, playerMoves: [Int](), oponentMoves: [Int]())
     }
     
+    // Return player list
     func GetGameState() -> [Player] {
         return players
     }
@@ -31,12 +32,14 @@ class CoreDataHandler {
         let player = players.count > 0 ?  players[0] : Player(context: self.context);
         let oponent = players.count > 0 ?  players[1] : Player(context: self.context);
         
+        // Player data
         player.score = Int32(playerScore)
         player.moves = playerMoves
-        
+        // Oponent data
         oponent.score = Int32(oponentScore)
         oponent.moves = oponentMoves
-    
+        
+        // Save changes
         self.SavePlayerModel()
     }
     

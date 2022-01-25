@@ -40,31 +40,41 @@ class GameManager {
         scoreLabel = UILabel()
     }
     
+    // Check game stato to prepare loading data
+    // Can't be on init since we need to wait for UI elements
     func CheckGameState() {
         LoadGameState(players: coreDataHandler.GetGameState())
     }
 
-    func LoadGameState(players: [Player]) {
+    // Load player data if exists
+    private func LoadGameState(players: [Player]) {
         if players.count > 0 {
+            // Udate score points
             playerPoints = Int(players[0].score)
             oponentPoints = Int(players[1].score)
             
+            // Check if there is player moves
             if let moves = players[0].moves {
                 playerSelection = moves
             }
             
+            // Check if there is oponent moves
             if let moves = players[1].moves {
                 oponentSelection = moves
             }
             
+            // Store moves length
             let playerCount = playerSelection.count
             let oponentCount = oponentSelection.count
+            // Check which player has more move, to determine who can play next
             let maxLenght = playerCount > oponentCount ? playerCount : oponentCount
             
-            
+            // Check if we have any moves
             if maxLenght > 0 {
+                // Determine is player was last move
                 didPlayerTap = playerCount > oponentCount
                 
+                // Update button images
                 for i in 0..<maxLenght {
                     if i < playerCount {
                         PerformSelection(index: playerSelection[i], imageName: "nought")
@@ -75,20 +85,24 @@ class GameManager {
                     }
                 }
                 
+                // Check if game can continue
                 let playerResult = CheckWinnerStatus(isPlayer: true)
                 let oponentResult = CheckWinnerStatus(isPlayer: false)
-                
+     
+                // Continue game base on previous results
                 if playerResult == "" && oponentResult == "" {
                     gameStart = true
                     AnimateOpacity(btn: playBtn, opacity: 0, speed: 0.5, delay: 0)
                 }
             }
             
+            // Udate score label
             UpdateScore()
         }
     }
     
-    func UpdateCoreData() {
+    // Save or Update any changes on the game
+    private func UpdateCoreData() {
         coreDataHandler.SaveData(playerScore: playerPoints, oponentScore: oponentPoints, playerMoves: playerSelection, oponentMoves: oponentSelection)
     }
     
@@ -215,13 +229,15 @@ class GameManager {
             return
         }
         
+        // Check winner status
         let result = CheckWinnerStatus(isPlayer: isPlayer)
         
+        // I result has some winner status end game
         if result != "" {
             EndGame()
         }
         
-        // Check if win, or can't peform more moves
+        // Check if player or oponnent win
         switch result {
             case "You Win":
                 playerPoints += 1
@@ -231,10 +247,12 @@ class GameManager {
                 break
         }
         
+        // Update score and result label
         UpdateScore()
         resultLabel.text = result
     }
     
+    // Check what is the winner status
     func CheckWinnerStatus(isPlayer: Bool) -> String {
         var didWin = false
         // Select list of selected position
