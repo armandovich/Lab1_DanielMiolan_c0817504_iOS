@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     // Create game manager and gesture list
-    private var coreDataHandler: CoreDataHandler = CoreDataHandler()
     private var gameManager: GameManager = GameManager()
     private var gestureList: [UISwipeGestureRecognizer.Direction] = [.left, .right, .up, .down]
     
@@ -28,6 +27,7 @@ class ViewController: UIViewController {
         gameManager.SetResultLabel(resultLabel: resultLabel)
         gameManager.SetPlayButton(playBtn: playBtn)
         gameManager.SetSelectionButtons(selectionBtns: buttonList)
+        gameManager.CheckGameState()
         
         // Add all swipe direction gesture to view
         for gesture in gestureList {

@@ -11,16 +11,23 @@ import CoreData
 
 class CoreDataHandler {
     // Prepare Cpre Data usage
-    var players = [Player]()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private var players = [Player]()
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     init() {
         LoadData()
+        
+        // For quick reset
+        //SaveData(playerScore: 0, oponentScore: 0, playerMoves: [Int](), oponentMoves: [Int]())
+    }
+    
+    func GetGameState() -> [Player] {
+        return players
     }
     
     // Save Data
     func SaveData(playerScore: Int, oponentScore: Int, playerMoves: [Int], oponentMoves: [Int]) {
-        // Perform Update
+        // Perform Update or Creation
         let player = players.count > 0 ?  players[0] : Player(context: self.context);
         let oponent = players.count > 0 ?  players[1] : Player(context: self.context);
         
@@ -30,11 +37,11 @@ class CoreDataHandler {
         oponent.score = Int32(oponentScore)
         oponent.moves = oponentMoves
     
-        self.saveFolders()
+        self.SavePlayerModel()
     }
     
     // Save Data
-    func saveFolders() {
+    func SavePlayerModel() {
         do {
             try context.save()
         } catch {
@@ -48,10 +55,6 @@ class CoreDataHandler {
         
         do {
             players = try context.fetch(request)
-            
-            for player in players {
-                print("Score: \(player.score), Moves: \(player.moves)")
-            }
         } catch {
             print("Error loading data \(error.localizedDescription)")
         }

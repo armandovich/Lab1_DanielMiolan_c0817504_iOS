@@ -7,8 +7,12 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class GameManager {
+    // Create Core Data handler instance
+    private var coreDataHandler: CoreDataHandler = CoreDataHandler()
+    
     // Attributes
     private var playerPoints: Int
     private var oponentPoints: Int
@@ -36,6 +40,58 @@ class GameManager {
         scoreLabel = UILabel()
     }
     
+    func CheckGameState() {
+        LoadGameState(players: coreDataHandler.GetGameState())
+    }
+
+    func LoadGameState(players: [Player]) {
+        if players.count > 0 {
+            playerPoints = Int(players[0].score)
+            oponentPoints = Int(players[1].score)
+            
+            if let moves = players[0].moves {
+                playerSelection = moves
+            }
+            
+            if let moves = players[1].moves {
+                oponentSelection = moves
+            }
+            
+            let playerCount = playerSelection.count
+            let oponentCount = oponentSelection.count
+            let maxLenght = playerCount > oponentCount ? playerCount : oponentCount
+            
+            
+            if maxLenght > 0 {
+                didPlayerTap = playerCount > oponentCount
+                
+                for i in 0..<maxLenght {
+                    if i < playerCount {
+                        PerformSelection(index: playerSelection[i], imageName: "nought")
+                    }
+                    
+                    if i < oponentCount {
+                        PerformSelection(index: oponentSelection[i], imageName: "cross")
+                    }
+                }
+                
+                let playerResult = CheckWinnerStatus(isPlayer: true)
+                let oponentResult = CheckWinnerStatus(isPlayer: false)
+                
+                if playerResult == "" && oponentResult == "" {
+                    gameStart = true
+                    AnimateOpacity(btn: playBtn, opacity: 0, speed: 0.5, delay: 0)
+                }
+            }
+            
+            UpdateScore()
+        }
+    }
+    
+    func UpdateCoreData() {
+        coreDataHandler.SaveData(playerScore: playerPoints, oponentScore: oponentPoints, playerMoves: playerSelection, oponentMoves: oponentSelection)
+    }
+    
     // Start the game and allow player to select areas
     func Start() -> Void {
         ResetGame()
@@ -55,7 +111,7 @@ class GameManager {
             // save last player moves
             lastMove = index - 1
             
-            // Select if oponent area if AI is not active
+            // Check if cross or nought turn
             if didPlayerTap {
                 didPlayerTap = false
                 oponentSelection.append(index)
@@ -68,6 +124,8 @@ class GameManager {
                 CheckWinner(isPlayer: true)
             }
         }
+        
+        UpdateCoreData()
     }
     
     // Reset the game and keep score
@@ -82,13 +140,15 @@ class GameManager {
         for btn in selectionBtns {
             btn.setBackgroundImage(nil, for: .normal)
         }
+        
+        UpdateCoreData()
     }
     
     // Reset the game with score
     func ResetBoard() -> Void {
         playerPoints = 0
         oponentPoints = 0
-        scoreLabel.text = "0 : 0"
+        UpdateScore()
         EndGame()
         ResetGame()
     }
@@ -103,7 +163,6 @@ class GameManager {
             selectionBtns[lastMove].setBackgroundImage(nil, for: .normal)
             
             if didPlayerTap {
-                
                 playerSelection.remove(at: playerSelection.count - 1)
             } else {
                 oponentSelection.remove(at: oponentSelection.count - 1)
@@ -113,6 +172,8 @@ class GameManager {
             didPlayerTap = !didPlayerTap
             takenPositions.remove(at: takenPositions.count - 1)
         }
+        
+        UpdateCoreData()
     }
     
     // Setters for UI ref elements
@@ -137,7 +198,7 @@ class GameManager {
         return !takenPositions.contains(index)
     }
     
-    // Perform final selection by player or AI
+    // Perform final selection by player
     private func PerformSelection(index: Int, imageName: String) -> Void {
         let tempBtn = selectionBtns[index - 1];
         let tempImg = UIImage(named: imageName)
@@ -154,6 +215,27 @@ class GameManager {
             return
         }
         
+        let result = CheckWinnerStatus(isPlayer: isPlayer)
+        
+        if result != "" {
+            EndGame()
+        }
+        
+        // Check if win, or can't peform more moves
+        switch result {
+            case "You Win":
+                playerPoints += 1
+            case "You Lose":
+                oponentPoints += 1
+            default:
+                break
+        }
+        
+        UpdateScore()
+        resultLabel.text = result
+    }
+    
+    func CheckWinnerStatus(isPlayer: Bool) -> String {
         var didWin = false
         // Select list of selected position
         let positions = isPlayer ? playerSelection : oponentSelection
@@ -175,25 +257,23 @@ class GameManager {
         // Set win true if any condition is true
         didWin = row1 || row2 || row3 || col1 || col2 || col3 || diag1 || diag2
         
-        // Check if win, or can't peform more moves
         if !didWin && takenPositions.count >= 9 {
-            EndGame()
-            resultLabel.text = "Even"
+            return "Even"
         } else if didWin {
-            EndGame()
-            
             // Check if player or oponent wins
             if isPlayer {
-                playerPoints += 1
-                resultLabel.text = "You Win"
+                return"You Win"
             } else {
-                oponentPoints += 1
-                resultLabel.text = "You Lose"
+                return "You Lose"
             }
-            
-            // Update score
-            scoreLabel.text = "\(playerPoints) : \(oponentPoints)"
         }
+        
+        return ""
+    }
+    
+    // Update score
+    func UpdateScore() {
+        scoreLabel.text = "\(playerPoints) : \(oponentPoints)"
     }
     
     // Finish the game and display play button again
