@@ -99,15 +99,16 @@
 		CFBA790D27977EE4005EC1A4 /* Lab1_DanielMiolan_c0817504_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CFE6E654279F7559008B8E78 /* Core */,
+				CFE6E653279F7549008B8E78 /* Controllers */,
+				CFE6E652279F7543008B8E78 /* Models */,
+				CFE6E651279F7539008B8E78 /* Views */,
 				CFBA794127978C99005EC1A4 /* res */,
 				CFBA790E27977EE4005EC1A4 /* AppDelegate.swift */,
 				CFBA791027977EE4005EC1A4 /* SceneDelegate.swift */,
-				CFBA791227977EE4005EC1A4 /* ViewController.swift */,
-				CFBA791427977EE4005EC1A4 /* Main.storyboard */,
 				CFBA791727977EE6005EC1A4 /* Assets.xcassets */,
 				CFBA791927977EE6005EC1A4 /* LaunchScreen.storyboard */,
 				CFBA791C27977EE6005EC1A4 /* Info.plist */,
-				CFBA794827978E2C005EC1A4 /* GameManager.swift */,
 			);
 			path = Lab1_DanielMiolan_c0817504_iOS;
 			sourceTree = "<group>";
@@ -120,6 +121,37 @@
 				CFBA794227978CC3005EC1A4 /* nought.png */,
 			);
 			path = res;
+			sourceTree = "<group>";
+		};
+		CFE6E651279F7539008B8E78 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CFBA791427977EE4005EC1A4 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CFE6E652279F7543008B8E78 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CFE6E653279F7549008B8E78 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CFBA791227977EE4005EC1A4 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CFE6E654279F7559008B8E78 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CFBA794827978E2C005EC1A4 /* GameManager.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
